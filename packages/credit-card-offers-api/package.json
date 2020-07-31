@@ -1,8 +1,10 @@
 {
   "name": "@project/credit-card-offers-api",
   "version": "0.0.0",
-  "description": "A sample backend project with amplify, that copiles to a library module",
-  "main": "index.js",
+  "description": "A sample backend project with amplify, that compiles to a library module",
+  "main": "src/index.js",
+  "main:src": "src/index.js",
+  "files": ["src/index.js", "src/graphql/*.js"],
   "license": "MIT",
   "private": true,
   "dependencies": {
