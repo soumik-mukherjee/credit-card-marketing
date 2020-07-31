@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-creditcardoffersapi-dev-133225-authRole",
+            "UnauthRoleArn": "arn:aws:iam::709624580606:role/amplify-creditcardoffersapi-dev-133225-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::709624580606:role/amplify-creditcardoffersapi-dev-133225-authRole",
+            "Region": "ap-south-1",
+            "DeploymentBucketName": "amplify-creditcardoffersapi-dev-133225-deployment",
+            "UnauthRoleName": "amplify-creditcardoffersapi-dev-133225-unauthRole",
+            "StackName": "amplify-creditcardoffersapi-dev-133225",
+            "StackId": "arn:aws:cloudformation:ap-south-1:709624580606:stack/amplify-creditcardoffersapi-dev-133225/d8ecab00-d171-11ea-9dbf-0a95c9550e3e",
+            "AmplifyAppId": "dbzqsaesrld8r"
+        }
+    }
+}

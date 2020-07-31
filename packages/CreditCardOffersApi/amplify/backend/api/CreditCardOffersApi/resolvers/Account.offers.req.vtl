@@ -1,0 +1,23 @@
+## [Start] Set hash key values. **
+## #set( $accountMnemonic = "ACCT" )
+## #set( $pkvalue = $accountMnemonic.concat("#").concat($ctx.args.accountId) )
+## [End] Set hash key values. **
+{
+  "version": "2017-02-28",
+  "operation": "Query",
+  "query": {
+    "expression": "#partKey = :pkValue And begins_with(#sortKey, :offerMenmonic)",
+    "expressionNames": {
+      "#partKey": "PK",
+      "#sortKey": "SK"
+    },
+    "expressionValues": {
+      ":pkValue": {
+        "S": "ACCT#${ctx.args.accountId}"
+      },
+      ":offerMenmonic": {
+        "S": "OFR"
+      }
+    }
+  }
+}

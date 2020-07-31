@@ -1,0 +1,15 @@
+## [Start] Set default values. **
+#set( $statusChangeDateTime = $util.time.nowISO8601() )
+## Automatically set the statusChangeDate timestamp. **
+$util.qr($context.args.accountOffer.put("statusChangeDate", $util.defaultIfNull($ctx.args.accountOffer.statusChangeDate, $statusChangeDateTime)))
+## [End] Set default values. **
+{
+    "version" : "2017-02-28",
+    "operation" : "PutItem",
+    "key" : {
+        ## If object "id" should come from GraphQL arguments, change to $util.dynamodb.toDynamoDBJson($ctx.args.id)
+        "PK": $util.dynamodb.toDynamoDBJson("ACCT#$context.arguments.accountOffer.accountId"),
+        "SK": $util.dynamodb.toDynamoDBJson("OFR#$context.arguments.accountOffer.offerId")
+    },
+	"attributeValues" : $util.dynamodb.toMapValuesJson($context.args.accountOffer)
+}

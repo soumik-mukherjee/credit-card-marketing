@@ -1,0 +1,90 @@
+﻿schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Account {
+  accountId: String!
+  emailId: String!
+  firstName: String!
+  lastName: String!
+  middleName: String
+  plasticCardNumber: String!
+  offers: [AccountOffer]
+}
+
+type Mutation {
+  createAccount(input: CreateAccountInput!): Account
+  deleteAccount(accountId: String!): Account
+  createAccountOffer(accountOffer: CreateAccountOfferInput!): AccountOffer
+  createOffer(offer: CreateOfferInput!): Offer
+}
+
+type Query {
+  getAccount(accountId: String!): Account
+  getAccountOffer(input: GetAccountOfferInput!): AccountOffer
+  #getAllOffersForAccount(accountId: String!): [AccountOffer]
+  getOffer(offerId: String!): Offer
+}
+
+input CreateAccountInput {
+  accountId: String!
+  emailId: String!
+  firstName: String!
+  lastName: String!
+  middleName: String
+  plasticCardNumber: String!
+}
+
+type CreditCardOffers @model (queries: null, mutations: null, subscriptions: null)
+  @key(fields:["PK", "SK"]) {
+  PK: String!
+  SK: String!
+  accountId: String!
+  emailId: String!
+  firstName: String!
+  lastName: String!
+  middleName: String
+  plasticCardNumber: String!
+}
+
+type AccountOffer {
+  offerId: String!
+  offerType: String!
+  accountOfferStartDate: String!
+  accountOfferEndDate: String
+  status: String!
+  statusChangeDate: String!
+}
+
+input CreateAccountOfferInput {
+  accountId: String!
+  offerId: String!
+  offerType: String!
+  accountOfferStartDate: String!
+  accountOfferEndDate: String
+  status: String!
+}
+
+input GetAccountOfferInput {
+  accountId: String!
+  offerId: String!
+}
+
+type Offer {
+  offerId: String!
+  offerType: String!
+  offerDescription: String
+  offerSubType: String
+  offerEffectiveDate: String!
+  offerExpiryDate: String!
+}
+
+input CreateOfferInput {
+  offerId: String!
+  offerType: String!
+  offerDescription: String
+  offerSubType: String
+  offerEffectiveDate: String!
+  offerExpiryDate: String!
+}

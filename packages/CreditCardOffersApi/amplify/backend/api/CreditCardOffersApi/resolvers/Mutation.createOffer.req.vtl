@@ -1,0 +1,10 @@
+{
+    "version" : "2017-02-28",
+    "operation" : "PutItem",
+    "key" : {
+        ## If object "id" should come from GraphQL arguments, change to $util.dynamodb.toDynamoDBJson($ctx.args.id)
+        "PK": $util.dynamodb.toDynamoDBJson("OFR#$context.arguments.offer.offerId"),
+        "SK": $util.dynamodb.toDynamoDBJson("OFR#$context.arguments.offer.offerId")
+    },
+	"attributeValues" : $util.dynamodb.toMapValuesJson($ctx.args.offer)
+}

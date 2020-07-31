@@ -1,0 +1,16 @@
+{
+  "name": "@project/sample-amplify-backend-sdk",
+  "version": "0.0.0",
+  "description": "A sample backend project with amplify, that copiles to a library module",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@aws-amplify/api": "^3.1.21",
+    "@aws-amplify/core": "^3.4.4"
+  },
+  "devDependencies": {
+    "@aws-amplify/cli": "^4.25.0",
+    "amplify-codegen": "^2.15.14"
+  }
+}
