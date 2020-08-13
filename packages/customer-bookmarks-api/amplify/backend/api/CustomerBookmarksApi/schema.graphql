@@ -1,0 +1,67 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type CustomerBookmark
+  @model(queries: null, mutations: null, subscriptions: null)
+  @key(fields: ["customerId", "sk"]) {
+  customerId: String!
+  sk: String!
+}
+
+type Customer {
+  customerId: String!
+  type: String!
+  email: String!
+  fullName: String!
+  userPreferences: String
+  bookmarks: String
+}
+
+type Bookmark {
+  customerId: String!
+  url: String!
+  createDate: String
+  updateDate: String
+  folder: String
+  title: String
+  description: String
+}
+
+type Query {
+  getCustomer(input: GetCustomerInput): Customer
+  getBookmark(input: GetBookmarkInput): Bookmark
+}
+
+type Mutation {
+  createCustomer(input: CreateCustomerInput): Customer
+  createBookmark(input: CreateBookmarkInput): Bookmark
+}
+
+input CreateCustomerInput {
+  customerId: String!
+  type: String!
+  email: String!
+  fullName: String!
+  userPreferences: String
+}
+
+input GetBookmarkInput {
+  customerId: String!
+  url: String!
+}
+
+input GetCustomerInput {
+  customerId: String!
+}
+
+input CreateBookmarkInput {
+  customerId: String!
+  url: String!
+  createDate: String
+  updateDate: String
+  folder: String
+  title: String
+  description: String
+}

@@ -9,6 +9,7 @@
     "@aws-amplify/ui-react": "^0.2.13",
     "@project/ui-components": "0.0.0",
     "@project/credit-card-offers-api": "0.0.0", 
+    "@project/customer-bookmarks-api": "0.0.0", 
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.20.12",
     "gatsby-image": "^2.3.1",
