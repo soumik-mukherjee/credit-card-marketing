@@ -1,0 +1,14 @@
+{
+  "name": "@project/customer-app-service",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": "true",
+  "dependencies": {
+    "@aws-amplify/api": "^3.1.23",
+    "@aws-amplify/auth": "^3.3.5",
+    "@aws-amplify/core": "^3.4.6",
+    "@project/credit-card-offers-api": "0.0.0",
+    "@project/customer-bookmarks-api": "0.0.0"
+  }
+}

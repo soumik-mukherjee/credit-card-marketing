@@ -16,3 +16,6 @@ export { default as ChartCard } from "./Charts/ChartCard";
 export { default as LineChart } from "./Charts/LineChart";
 export { default as Legend } from "./Charts/Legend";
 export { default as Memo } from "./Cards/Memo";
+export { default as CustomerDetails } from "./Cards/CustomerDetails";
+export { default as CustomerOffers } from "./Cards/CustomerOffers";
+export { default as MyOffers } from "./Pages/MyOffers";

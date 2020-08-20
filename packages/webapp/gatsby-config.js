@@ -1,20 +1,3 @@
-const activeEnv =
-  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
-
-// Only use dotenv when local development
-if(activeEnv  === 'development') { 
-  console.log(`Using environment config: '${activeEnv}'`)
-  const envParseResult = require("dotenv").config({
-    path: `../../.env`,
-  });
-  if (envParseResult.error) {
-    throw envParseResult.error
-  }
-  else{
-    console.log(`Parsed evnvironment keys: ${envParseResult.parsed}`);
-  }
-};
-
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,

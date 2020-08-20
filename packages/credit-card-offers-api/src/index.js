@@ -1,2 +1,3 @@
-export const queries = require('./graphql/queries');
-export const mutations = require('./graphql/mutations');
+export const CreditCardOffersApiQueries = require("./graphql/queries");
+export const CreditCardOffersApiMutations = require("./graphql/mutations");
+
