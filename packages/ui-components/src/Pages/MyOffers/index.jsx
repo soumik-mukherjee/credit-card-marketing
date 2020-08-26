@@ -15,14 +15,16 @@ const Spacer =  styled.div`
 
 const MyOffers = (props) => {
   const { customerOffers, personalDetails, accountDetails } = props;
+  const { customerId, fullName, email } = personalDetails || {};
+  const { plasticCardNumber } = accountDetails || {};
   return (
     <Container>
       <CustomerDetails
         title="Your Profile"
-        customerId={personalDetails.customerId}
-        fullName={personalDetails.fullName}
-        email={personalDetails.email}
-        plasticCardNumber={accountDetails.plasticCardNumber}
+        customerId={customerId}
+        fullName={fullName}
+        email={email}
+        plasticCardNumber={plasticCardNumber}
       ></CustomerDetails>
       <Spacer />
       <CustomerOffers

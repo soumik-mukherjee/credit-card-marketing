@@ -1,0 +1,10 @@
+{
+	"auth": {
+		"webapp9678d21c": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
+	}
+}
