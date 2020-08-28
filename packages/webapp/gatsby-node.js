@@ -17,3 +17,7 @@ exports.onCreatePage = async ({ page, actions }) => {
     createPage(page)
   }
 }
+
+exports.onPostBuild = async (nodeOptions, pluginOptions) => {
+  console.log('process.env.PROJECT_REGION: ', process.env.PROJECT_REGION)
+}
