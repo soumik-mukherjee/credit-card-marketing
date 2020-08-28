@@ -1,0 +1,41 @@
+version: 1
+applications:
+  - backend:
+      phases:
+        build:
+          commands:
+            - '# Execute Amplify CLI with the helper script'
+            - amplifyPush --simple
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - yarn
+        build:
+          commands:
+            - '# Set environment variables'
+            - '# Amplify Auth vars'
+            - PROJECT_REGION=$PROJECT_REGION
+            - COGNITO_REGION=$COGNITO_REGION
+            - USER_POOLS_ID=$USER_POOLS_ID
+            - USER_POOLS_WEB_CLIENT_ID=$USER_POOLS_WEB_CLIENT_ID
+            - '# Backend GraphQL API vars'
+            - '# Credit card offers API (uses API key auth)'
+            - CREDIT_CARD_OFFERS_API_GRAPHQLENDPOINT=$CREDIT_CARD_OFFERS_API_GRAPHQLENDPOINT
+            - CREDIT_CARD_OFFERS_API_APPSYNC_REGION=$CREDIT_CARD_OFFERS_API_APPSYNC_REGION
+            - CREDIT_CARD_OFFERS_API_APPSYNC_AUTHENTICATION_TYPE=$CREDIT_CARD_OFFERS_API_APPSYNC_AUTHENTICATION_TYPE
+            - CREDIT_CARD_OFFERS_API_APIKEY=$CREDIT_CARD_OFFERS_API_APIKEY
+            - '# Customer bookmarks api (uses cognito user pools auth)'
+            - CUSTOMER_BOOKMARKS_API_GRAPHQLENDPOINT=$CUSTOMER_BOOKMARKS_API_GRAPHQLENDPOINT
+            - CUSTOMER_BOOKMARKS_API_APPSYNC_REGION=$CUSTOMER_BOOKMARKS_API_APPSYNC_REGION
+            - CUSTOMER_BOOKMARKS_API_APPSYNC_AUTHENTICATION_TYPE=$CUSTOMER_BOOKMARKS_API_APPSYNC_AUTHENTICATION_TYPE
+            - '# Run build'
+            - yarn build
+      artifacts:
+        baseDirectory: public
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+    appRoot: packages/webapp
