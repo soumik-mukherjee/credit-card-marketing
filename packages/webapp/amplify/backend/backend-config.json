@@ -1,6 +1,6 @@
 {
 	"auth": {
-		"webapp9678d21c": {
+		"webapp-cognito-service": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [],

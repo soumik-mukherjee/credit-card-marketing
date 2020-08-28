@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "webapp9678d21c_identitypool_9678d21c",
+    "identityPoolName": "webapp-cognito-service_identitypool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "webapp9678d21c",
-    "userPoolName": "webapp9678d21c_userpool_9678d21c",
+    "resourceNameTruncated": "webapp-cognito-service",
+    "userPoolName": "webapp-cognito-service_userpool",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "webapp9678d21c_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "webapp-cognito-service_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
     "sharedId": "9678d21c",
-    "resourceName": "webapp9678d21c",
+    "resourceName": "webapp-cognito-service",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
