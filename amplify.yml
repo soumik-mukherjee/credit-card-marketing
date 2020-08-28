@@ -15,7 +15,8 @@ applications:
           commands:
             - '# Set environment variables'
             - '# Amplify Auth vars'
-            - PROJECT_REGION=$PROJECT_REGION 
+            - touch .env.production
+            - echo PROJECT_REGION=$PROJECT_REGION 
               COGNITO_REGION=$COGNITO_REGION 
               USER_POOLS_ID=$USER_POOLS_ID 
               USER_POOLS_WEB_CLIENT_ID=$USER_POOLS_WEB_CLIENT_ID 
@@ -25,8 +26,9 @@ applications:
               CREDIT_CARD_OFFERS_API_APIKEY=$CREDIT_CARD_OFFERS_API_APIKEY 
               CUSTOMER_BOOKMARKS_API_GRAPHQLENDPOINT=$CUSTOMER_BOOKMARKS_API_GRAPHQLENDPOINT 
               CUSTOMER_BOOKMARKS_API_APPSYNC_REGION=$CUSTOMER_BOOKMARKS_API_APPSYNC_REGION 
-              CUSTOMER_BOOKMARKS_API_APPSYNC_AUTHENTICATION_TYPE=$CUSTOMER_BOOKMARKS_API_APPSYNC_AUTHENTICATION_TYPE 
-              yarn build
+              CUSTOMER_BOOKMARKS_API_APPSYNC_AUTHENTICATION_TYPE=$CUSTOMER_BOOKMARKS_API_APPSYNC_AUTHENTICATION_TYPE > .env.production
+            - cat .env.production
+            - yarn build
       artifacts:
         baseDirectory: public
         files:
