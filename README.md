@@ -1,4 +1,4 @@
-## Important
+## Important Note
 
 ### Note for `aws-amplify` modules usage
 
