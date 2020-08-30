@@ -1,0 +1,41 @@
+version: 1
+applications:
+  - backend:
+      phases:
+        build:
+          commands:
+            - '# Execute Amplify CLI with the helper script'
+            - amplifyPush --environment dev --simple
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - yarn
+        build:
+          commands:
+            - '# Set environment variables'
+            - '# Amplify Auth vars'
+            - touch .env.production
+            - echo "PROJECT_REGION=$PROJECT_REGION" > .env.production
+            - echo "COGNITO_REGION=$COGNITO_REGION" >> .env.production
+            - echo "COGNITO_IDENTITY_POOL_ID=$COGNITO_IDENTITY_POOL_ID" >> .env.production
+            - echo "USER_POOLS_ID=$USER_POOLS_ID" >> .env.production
+            - echo "USER_POOLS_WEB_CLIENT_ID=$USER_POOLS_WEB_CLIENT_ID" >> .env.production                
+            - '# Api vars (API Key Auth Type)'
+            - echo "CREDIT_CARD_OFFERS_API_GRAPHQLENDPOINT=$CREDIT_CARD_OFFERS_API_GRAPHQLENDPOINT" >> .env.production
+            - echo "CREDIT_CARD_OFFERS_API_APPSYNC_REGION=$CREDIT_CARD_OFFERS_API_APPSYNC_REGION" >> .env.production
+            - echo "CREDIT_CARD_OFFERS_API_APPSYNC_AUTHENTICATION_TYPE=$CREDIT_CARD_OFFERS_API_APPSYNC_AUTHENTICATION_TYPE" >> .env.production
+            - echo "CREDIT_CARD_OFFERS_API_APIKEY=$CREDIT_CARD_OFFERS_API_APIKEY" >> .env.production
+            - '# Api vars (AMAZON_COGNITO_USER_POOLS Auth Type)'
+            - echo "CUSTOMER_BOOKMARKS_API_GRAPHQLENDPOINT=$CUSTOMER_BOOKMARKS_API_GRAPHQLENDPOINT" >> .env.production
+            - echo "CUSTOMER_BOOKMARKS_API_APPSYNC_REGION=$CUSTOMER_BOOKMARKS_API_APPSYNC_REGION" >> .env.production
+            - echo "CUSTOMER_BOOKMARKS_API_APPSYNC_AUTHENTICATION_TYPE=$CUSTOMER_BOOKMARKS_API_APPSYNC_AUTHENTICATION_TYPE" >> .env.production
+            - yarn build
+      artifacts:
+        baseDirectory: public
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+    appRoot: packages/webapp
