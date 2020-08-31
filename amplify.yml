@@ -5,7 +5,7 @@ applications:
         build:
           commands:
             - '# Execute Amplify CLI with the helper script'
-            - amplifyPush --environment dev --simple
+            - amplifyPush --simple
     frontend:
       phases:
         preBuild:
