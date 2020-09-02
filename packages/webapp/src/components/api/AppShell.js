@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { DemoAppShell, DemoMuiTheme } from '@project/ui-components'
 import { ThemeProvider } from '@material-ui/core/styles'
 import {navigate} from 'gatsby';
+import { AuthContext } from '../../api/AuthContext'
 
 const AppShell = ({ children }) => {
+  const auth = useContext(AuthContext);
   const handleUserButtonClick = () => {
     console.log('User button clicked!')
   }
@@ -27,7 +29,7 @@ const AppShell = ({ children }) => {
     <ThemeProvider theme={DemoMuiTheme}>
       <DemoAppShell
         appBarTitle="My GoodyBag"
-        appBarUserBtnLabel="john.doe@foo.com"
+        appBarUserBtnLabel={auth.attributes.email}
         onAppBarUserBtnClick={handleUserButtonClick}
         onHomeItemClicked={handleHomeClick}
         onMyAccountItemClicked={handleMyAccountClick}
