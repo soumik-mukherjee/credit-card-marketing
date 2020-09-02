@@ -13,7 +13,7 @@ applications:
           commands:
             - echo "nothing to do"  
       artifacts:
-        baseDirectory: public
+        baseDirectory: src
         files:
           - '**/*'
       cache:
@@ -32,7 +32,7 @@ applications:
           commands:
             - echo "nothing to do"  
       artifacts:
-        baseDirectory: public
+        baseDirectory: src
         files:
           - '**/*'
       cache:
