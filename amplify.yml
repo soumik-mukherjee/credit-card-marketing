@@ -7,6 +7,18 @@ applications:
           commands:
             - '# Execute Amplify CLI with the helper script'
             - amplifyPush --environment dev --simple
+    frontend:
+      phases:
+        build:
+          commands:
+            - echo "nothing to do"  
+      artifacts:
+        baseDirectory: public
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
   - appRoot: packages/customer-bookmarks-api
     backend:
       phases:
@@ -14,6 +26,18 @@ applications:
           commands:
             - '# Execute Amplify CLI with the helper script'
             - amplifyPush --environment dev --simple
+    frontend:
+      phases:
+        build:
+          commands:
+            - echo "nothing to do"  
+      artifacts:
+        baseDirectory: public
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
   - appRoot: packages/webapp
     backend:
       phases:

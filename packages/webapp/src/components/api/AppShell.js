@@ -29,7 +29,7 @@ const AppShell = ({ children }) => {
     <ThemeProvider theme={DemoMuiTheme}>
       <DemoAppShell
         appBarTitle="My GoodyBag"
-        appBarUserBtnLabel={auth.attributes.email}
+        appBarUserBtnLabel={auth.attributes.sub}
         onAppBarUserBtnClick={handleUserButtonClick}
         onHomeItemClicked={handleHomeClick}
         onMyAccountItemClicked={handleMyAccountClick}
