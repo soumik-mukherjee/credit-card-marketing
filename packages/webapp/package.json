@@ -29,7 +29,8 @@
     "styled-components": "^5.1.0"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "toggleBuild:1"
   ],
   "license": "Apache-2.0",
   "scripts": {
